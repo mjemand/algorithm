@@ -2,83 +2,74 @@
 let numericArray = [14, 3, 0, 9, 123, 567];
 console.log(numericArray)
 
-// The smallest //
 
-let smallest = numericArray[0];
+// 1. The smallest //
 
-function smallestElement () {
-    for (let i=0; i < numericArray.length; i+=1) {
-        if (numericArray[i] < smallest) {
-            smallest = numericArray[i];
+function smallestElement (arr) {
+    let smallest = arr[0];
+    for (let i=1; i < arr.length; i+=1) {
+        if (arr[i] < smallest) {
+            smallest = arr[i];
         }
     }
-};
+    return smallest;
+}
 
-smallestElement();
-console.log('The smallest element: ', smallest)
+console.log('The smallest element: ', smallestElement(numericArray));
 
 
-// The biggest //
+// 2. The biggest //
 
-let biggest = numericArray[0];
-
-function biggestElement () {
-    for (let i=0; i<numericArray.length; i+=1) {
-        if (numericArray[i] > biggest) {
-            biggest = numericArray[i];
+function biggestElement (arr) {
+    let biggest = arr[0];
+    for (let i=1; i<arr.length; i+=1) {
+        if (arr[i] > biggest) {
+            biggest = arr[i];
         }
     }
+    return biggest;
 }
 
-biggestElement();
-console.log('The biggest element: ', biggest)
+console.log('The biggest element: ', biggestElement(numericArray));
 
-// Average //
 
-let sum = 0
+// 3. Sum //
 
-function average () {
-    for (let i=0; i<numericArray.length; i+=1) {
-        sum += numericArray[i];
-    } 
-    console.log('Sum: ', sum);
-    return sum / numericArray.length;
+function getSum (arr) {
+    let sum = 0;
+    for (let i=0; i<arr.length; i+=1) {
+        sum += arr[i];
+    }
+    return sum;
 }
 
-console.log('Sum: ', sum);
+console.log('Sum: ', getSum(numericArray));
+
+
+// 4. Average //
+
+function getAverage (arr) {
+    return getSum(arr) / arr.length;
+}
+
 console.log('Nr. of elements: ', numericArray.length);
-console.log('Average: ', average())
-console.log('Sum: ', sum);
+console.log('Average: ', getAverage(numericArray))
 
-// Sum //
 
-let sum2 = 0;
+// 5. Even numbers
 
-function sumFn () {
-    for (let i=0; i<numericArray.length; i+=1) {
-        sum2 += numericArray[i];
-    }
-    console.log('Sum: ', sum2)
-}
-
-console.log('Sum: ', sum2)
-sumFn();
-console.log('Sum: ', sum2)
-
-// Even numbers
-
-let db = 0
-
-function evenNumbers () {
-    for (let i=0; i<numericArray.length; i+=1) {
-        if (numericArray[i] % 2 == 0) {
-            db +=1
+function evenNumbers (arr) {
+    let counter = 0
+    for (let i=0; i<arr.length; i+=1) {
+        if (arr[i] % 2 === 0) {
+            counter +=1
         }
     }
+    return counter
 }
 
-evenNumbers()
-console.log('Even numbers: ', db)
+console.log('Even numbers: ', evenNumbers(numericArray))
+
 
 // 2nd smallest
 
